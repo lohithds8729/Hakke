@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbox</title>
+    <link rel="stylesheet" href="chatbox.css">
+</head>
+<body>
+
+    <div class="chat-container">
+        <button id="openChat">Chat</button>
+        <div id="chatBox" class="chat-box">
+            <div id="messages"></div>
+            <textarea id="messageInput"></textarea>
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chatbox.js"></script>
+</body>
+</html>

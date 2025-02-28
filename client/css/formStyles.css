@@ -1,0 +1,115 @@
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-weight: bold;
+}
+
+/* Change the color of the close button on hover */
+.close-btn:hover {
+    color: #e74c3c;
+}
+
+
+/* General Styles (Common for all screen sizes) */
+.popup-form {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 100%; /* Full width for all screens */
+    box-sizing: border-box; /* To ensure padding does not affect width */
+}
+
+/* Form Inputs and Buttons */
+.popup-form input, .popup-form textarea, .popup-form button {
+    width: 100%; /* Full width of the form */
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Standard font size */
+}
+
+/* Button Styling */
+.popup-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popup-form button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
+/* Overlay Background */
+.overlay1 {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Desktop View (for larger screens like tablets, laptops, and desktops) */
+@media screen and (min-width: 768px) {
+    .popup-form {
+        width: 400px; /* Fixed width for desktop */
+        max-height: 80vh; /* Ensure the form doesn't take up too much space vertically */
+        overflow-y: auto; /* Allow scrolling if necessary */
+    }
+
+    .popup-form input, .popup-form textarea, .popup-form button {
+        font-size: 16px; /* Standard font size for desktop */
+    }
+}
+
+/* Mobile View (for small screens like smartphones) */
+@media screen and (max-width: 767px) {
+    .popup-form {
+        width: 90%; /* Takes up 90% of the screen width for mobile */
+        max-height: 80vh; /* Limiting the max height of the form */
+        overflow-y: auto; /* Enable scrolling if content exceeds screen height */
+        padding: 15px; /* Slightly less padding on mobile for better fit */
+    }
+
+    .popup-form input, .popup-form textarea, .popup-form button {
+        font-size: 14px; /* Smaller font size for mobile screens */
+        padding: 10px; /* Adjust padding for mobile devices */
+    }
+}
+
+/* Very Small Screen View (for even smaller screens, e.g., small smartphones) */
+@media screen and (max-width: 480px) {
+    .popup-form {
+        width: 95%; /* Even narrower width on very small screens */
+        padding: 12px; /* Reduce padding even more */
+    }
+
+    .popup-form input, .popup-form textarea, .popup-form button {
+        font-size: 14px; /* Keep the font size consistent */
+        padding: 10px; /* Maintain small padding for small screens */
+    }
+}
