@@ -6,17 +6,22 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const socketIo = require('socket.io');
 const mysql = require('mysql2');
+const nodemailer = require('nodemailer');
+const dns = require('dns');
+
+// Force DNS resolution to use IPv4
+dns.setDefaultResultOrder('ipv4first');
 
 const server = http.createServer(app);
 const io = socketIo(server);
 
 // POST route to handle form submissions
-// const db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '',
-//     database: 'hakke_inquiries'
-//   });
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'hakke_inquiries'
+  });
 
 app.use(cors());
 
@@ -60,10 +65,14 @@ app.post('/submit-inquiry', (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'dslohith4@gmail.com',
-        pass: 'Chai@9008518790'
+        user: '',
+        pass: ''  // Use app password if using 2FA
+      },
+      tls: {
+        rejectUnauthorized: false  // Disable certificate validation (not secure)
       }
     });
+    
 
     const mailOptions = {
       from: 'dslohith4@gmail.com',
